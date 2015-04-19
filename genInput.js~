@@ -36,6 +36,9 @@ function crtArray(obj, type) {
 	if (type === "text"	|| type === "textarea") {
 		obj.each(function() {
 			outStr += format_arrEle($(this).val());
+			if (type === "textarea") {
+				alert($(this).val());
+			}
 		});
 	} else if (type === "checkbox") {
 		obj.each(function() {
@@ -80,7 +83,7 @@ function genProc(obj, type, keyword) {
 function format_arrEle(str) {
 	var resultStr = "";
 	if (str === false) str = "";
-	resultStr += "\"" + str.replace(/\n/g, "\\n") + "\",\n";
+	resultStr += "\"" + str + "\",\n";
 	return resultStr;
 }
 
